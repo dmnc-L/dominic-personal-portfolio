@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Full-Stack Developer & UI/UX Designer</title>
+  <meta name="description" content="Full-Stack Developer & UI/UX Designer — I turn complex problems into elegant, performant solutions. Clean code, intuitive design, seamless experiences." />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://your-portfolio.vercel.app" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-portfolio.vercel.app" />
+  <meta property="og:title" content="Your Name — Full-Stack Developer & UI/UX Designer" />
+  <meta property="og:description" content="I turn complex problems into elegant, performant solutions. Clean code, intuitive design, seamless experiences." />
+  <meta property="og:image" content="https://your-portfolio.vercel.app/og-image.png" />
+  <meta property="og:site_name" content="Your Name — Portfolio" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://your-portfolio.vercel.app" />
+  <meta name="twitter:title" content="Your Name — Full-Stack Developer & UI/UX Designer" />
+  <meta name="twitter:description" content="I turn complex problems into elegant, performant solutions. Clean code, intuitive design, seamless experiences." />
+  <meta name="twitter:image" content="https://your-portfolio.vercel.app/og-image.png" />
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0a0a0c" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#0a0a0c',
+            charcoal: '#121216',
+            surface: '#1a1a20',
+            'surface-light': '#22222a',
+            cream: '#f3f4f6',
+            'cream-dim': '#a1a1aa',
+            cyan: {
+              glow: '#22d3ee',
+              deep: '#0891b2',
+            },
+            amber: {
+              glow: '#f59e0b',
+              deep: '#d97706',
+            },
+          },
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'slide-up': 'slide-up 0.6s ease-out forwards',
+            'fade-in': 'fade-in 0.8s ease-out forwards',
+            'scan-line': 'scan-line 4s linear infinite',
+          },
+          keyframes: {
+            'glow-pulse': {
+              '0%, 100%': { opacity: '0.4' },
+              '50%': { opacity: '1' },
+            },
+            'float': {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+            'slide-up': {
+              '0%': { opacity: '0', transform: 'translateY(40px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            'fade-in': {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            'scan-line': {
+              '0%': { transform: 'translateY(-100%)' },
+              '100%': { transform: 'translateY(100%)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif; }
+    body { background-color: #0a0a0c; color: #f3f4f6; overflow-x: hidden; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0c; }
+    ::-webkit-scrollbar-thumb { background: #22d3ee33; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #22d3ee66; }
+
+    /* Glow effects */
+    .glow-cyan { box-shadow: 0 0 15px rgba(34, 211, 238, 0.15), 0 0 40px rgba(34, 211, 238, 0.05); }
+    .glow-cyan-strong { box-shadow: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 60px rgba(34, 211, 238, 0.1); }
+    .glow-amber { box-shadow: 0 0 15px rgba(245, 158, 11, 0.15), 0 0 40px rgba(245, 158, 11, 0.05); }
+    .glow-amber-strong { box-shadow: 0 0 20px rgba(245, 158, 11, 0.3), 0 0 60px rgba(245, 158, 11, 0.1); }
+    .text-glow-cyan { text-shadow: 0 0 20px rgba(34, 211, 238, 0.5); }
+    .text-glow-amber { text-shadow: 0 0 20px rgba(245, 158, 11, 0.5); }
+
+    /* Glass card */
+    .glass-card {
+      background: rgba(26, 26, 32, 0.6);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(34, 211, 238, 0.08);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(34, 211, 238, 0.25);
+      box-shadow: 0 0 30px rgba(34, 211, 238, 0.08), 0 8px 32px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Grid background */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Noise overlay */
+    .noise::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Button glow hover */
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-glow::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.15), transparent 70%);
+      transition: width 0.6s, height 0.6s;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+    }
+    .btn-glow:hover::before {
+      width: 300px; height: 300px;
+    }
+
+    /* Tooltip */
+    .tooltip {
+      position: relative;
+    }
+    .tooltip::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) scale(0.9);
+      background: #1a1a20;
+      color: #f3f4f6;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(34, 211, 238, 0.15);
+    }
+    .tooltip:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav {
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .mobile-nav.open {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="noise grid-bg">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- NAVIGATION                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-glow to-amber-glow flex items-center justify-center text-obsidian font-bold text-sm group-hover:shadow-lg group-hover:shadow-cyan-glow/20 transition-shadow">
+            D
+          </div>
+          <span class="font-semibold text-cream tracking-tight hidden sm:block">dev<span class="text-cyan-glow">.</span>portfolio</span>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#about" class="nav-link px-4 py-2 text-sm text-cream-dim hover:text-cyan-glow transition-colors rounded-lg hover:bg-white/5">About</a>
+          <a href="#skills" class="nav-link px-4 py-2 text-sm text-cream-dim hover:text-cyan-glow transition-colors rounded-lg hover:bg-white/5">Skills</a>
+          <a href="#card" class="nav-link px-4 py-2 text-sm text-cream-dim hover:text-cyan-glow transition-colors rounded-lg hover:bg-white/5">Share</a>
+          <a href="#contact" class="ml-2 px-5 py-2 text-sm font-medium bg-cyan-glow/10 text-cyan-glow border border-cyan-glow/20 rounded-lg hover:bg-cyan-glow/20 hover:border-cyan-glow/40 transition-all btn-glow">
+            Contact
+          </a>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button id="menuToggle" class="md:hidden p-2 text-cream-dim hover:text-cyan-glow transition-colors" aria-label="Toggle menu">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div id="mobileNav" class="mobile-nav fixed inset-0 z-[60] bg-obsidian/95 backdrop-blur-xl md:hidden">
+    <div class="flex justify-end p-4">
+      <button id="menuClose" class="p-2 text-cream-dim hover:text-cyan-glow transition-colors" aria-label="Close menu">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <div class="flex flex-col items-center gap-6 mt-16">
+      <a href="#about" class="mobile-link text-2xl font-light text-cream-dim hover:text-cyan-glow transition-colors">About</a>
+      <a href="#skills" class="mobile-link text-2xl font-light text-cream-dim hover:text-cyan-glow transition-colors">Skills</a>
+      <a href="#card" class="mobile-link text-2xl font-light text-cream-dim hover:text-cyan-glow transition-colors">Share</a>
+      <a href="#contact" class="mobile-link text-2xl font-light text-cream-dim hover:text-cyan-glow transition-colors">Contact</a>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- HERO SECTION                                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Ambient glow orbs -->
+    <div class="absolute top-1/4 -left-32 w-96 h-96 bg-cyan-glow/5 rounded-full blur-[120px] animate-glow-pulse"></div>
+    <div class="absolute bottom-1/4 -right-32 w-96 h-96 bg-amber-glow/5 rounded-full blur-[120px] animate-glow-pulse" style="animation-delay: 1.5s;"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <!-- Status badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface/60 border border-cyan-glow/15 mb-8 animate-fade-in">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-xs sm:text-sm text-cream-dim tracking-wide">Available for new opportunities</span>
+      </div>
+
+      <!-- Greeting -->
+      <p class="text-lg sm:text-xl text-cream-dim mb-3 animate-slide-up" style="animation-delay: 0.1s;">
+        Hello, I'm
+      </p>
+
+      <!-- Name -->
+      <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-4 animate-slide-up" style="animation-delay: 0.2s;">
+        <span class="bg-gradient-to-r from-cream via-cream to-cream-dim bg-clip-text text-transparent">
+          Your Name
+        </span>
+      </h1>
+
+      <!-- Title -->
+      <h2 class="text-xl sm:text-2xl md:text-3xl font-medium mb-6 animate-slide-up" style="animation-delay: 0.3s;">
+        <span class="text-cyan-glow text-glow-cyan">Full-Stack Developer</span>
+        <span class="text-cream-dim mx-2">&</span>
+        <span class="text-amber-glow text-glow-amber">UI/UX Designer</span>
+      </h2>
+
+      <!-- Tagline -->
+      <p class="text-base sm:text-lg text-cream-dim/80 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style="animation-delay: 0.4s;">
+        I turn complex problems into elegant, performant solutions.<br class="hidden sm:block" />
+        Clean code. Intuitive design. Seamless experiences.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up" style="animation-delay: 0.5s;">
+        <a href="#skills" class="group relative px-8 py-3.5 bg-gradient-to-r from-cyan-glow to-cyan-deep text-obsidian font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-glow/25 transition-all duration-300 flex items-center gap-2 btn-glow">
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          View Skills
+          <i data-lucide="arrow-down" class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
+        </a>
+        <a href="#contact" class="px-8 py-3.5 border border-cream-dim/20 text-cream font-medium rounded-xl hover:border-amber-glow/40 hover:text-amber-glow hover:shadow-lg hover:shadow-amber-glow/10 transition-all duration-300 flex items-center gap-2 btn-glow">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          Get in Touch
+        </a>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+        <div class="w-6 h-10 rounded-full border-2 border-cream-dim/20 flex justify-center pt-2">
+          <div class="w-1 h-2.5 rounded-full bg-cyan-glow/60 animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- ABOUT ME                                    -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="about" class="relative py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+
+        <!-- Left: Avatar/Visual -->
+        <div class="lg:col-span-2 flex justify-center">
+          <div class="relative">
+            <!-- Avatar placeholder -->
+            <div class="w-56 h-56 sm:w-72 sm:h-72 rounded-2xl bg-gradient-to-br from-surface to-surface-light border border-cyan-glow/10 overflow-hidden relative group">
+              <div class="absolute inset-0 bg-gradient-to-br from-cyan-glow/5 to-amber-glow/5"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <i data-lucide="user" class="w-20 h-20 sm:w-24 sm:h-24 text-cream-dim/30"></i>
+              </div>
+              <!-- Scan line effect -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div class="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-glow/60 to-transparent animate-scan-line"></div>
+              </div>
+            </div>
+            <!-- Decorative corner accents -->
+            <div class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-cyan-glow/40 rounded-tl-lg"></div>
+            <div class="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-amber-glow/40 rounded-br-lg"></div>
+            <!-- Floating badge -->
+            <div class="absolute -bottom-4 -right-4 glass-card px-3 py-1.5 rounded-lg flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span class="text-xs text-cream-dim">5+ yrs exp</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Bio -->
+        <div class="lg:col-span-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/5 border border-cyan-glow/10 mb-6">
+            <i data-lucide="info" class="w-3.5 h-3.5 text-cyan-glow"></i>
+            <span class="text-xs text-cyan-glow tracking-widest uppercase font-medium">About Me</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-6 leading-tight">
+            Building digital experiences that
+            <span class="text-cyan-glow text-glow-cyan">solve real problems</span>
+          </h2>
+
+          <div class="space-y-4 text-cream-dim/80 leading-relaxed">
+            <p>
+              I'm a <strong class="text-cream font-medium">proactive problem-solver</strong> who lives at the intersection of engineering and design. With a deep love for both writing robust, scalable code and crafting pixel-perfect user experiences, I bring a unique dual perspective to every project.
+            </p>
+            <p>
+              My approach is simple: <strong class="text-cream font-medium">understand the problem deeply</strong>, architect a clean solution, and build it with precision. Whether it's optimizing a complex backend system, designing an intuitive user flow, or shipping a full product end-to-end — I thrive on turning ambiguity into clarity.
+            </p>
+            <p>
+              When I'm not coding, you'll find me exploring new design systems, contributing to open-source, or dissecting what makes great software <em>feel</em> great.
+            </p>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="grid grid-cols-3 gap-4 mt-8">
+            <div class="glass-card rounded-xl p-4 text-center">
+              <div class="text-2xl sm:text-3xl font-bold text-cyan-glow">50+</div>
+              <div class="text-xs text-cream-dim mt-1">Projects Built</div>
+            </div>
+            <div class="glass-card rounded-xl p-4 text-center">
+              <div class="text-2xl sm:text-3xl font-bold text-amber-glow">5+</div>
+              <div class="text-xs text-cream-dim mt-1">Years Experience</div>
+            </div>
+            <div class="glass-card rounded-xl p-4 text-center">
+              <div class="text-2xl sm:text-3xl font-bold text-cyan-glow">20+</div>
+              <div class="text-xs text-cream-dim mt-1">Happy Clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SKILLS & EXPERTISE                          -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="skills" class="relative py-24 sm:py-32">
+    <!-- Section glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-glow/3 rounded-full blur-[150px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- Section header -->
+      <div class="text-center mb-16 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/5 border border-cyan-glow/10 mb-6">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-glow"></i>
+          <span class="text-xs text-cyan-glow tracking-widest uppercase font-medium">Tech Stack</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-4">Skills & Expertise Matrix</h2>
+        <p class="text-cream-dim/70 max-w-xl mx-auto">A comprehensive toolkit refined through years of building production applications and designing intuitive interfaces.</p>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Frontend & Design -->
+        <div class="reveal glass-card rounded-2xl p-6 sm:p-8" style="transition-delay: 0.1s;">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-glow/20 to-cyan-glow/5 flex items-center justify-center mb-6 border border-cyan-glow/10">
+            <i data-lucide="palette" class="w-6 h-6 text-cyan-glow"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-cream mb-2">Frontend & Design</h3>
+          <p class="text-sm text-cream-dim/60 mb-6">Crafting interfaces that are beautiful, accessible, and performant.</p>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-cyan-glow/60 group-hover:bg-cyan-glow transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">UI/UX Design</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow/20"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-cyan-glow/60 group-hover:bg-cyan-glow transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">Figma</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow/20"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-cyan-glow/60 group-hover:bg-cyan-glow transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">Tailwind CSS</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-cyan-glow/60 group-hover:bg-cyan-glow transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">React / Next.js</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow"></div><div class="w-5 h-1 rounded bg-cyan-glow/20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backend & Engineering -->
+        <div class="reveal glass-card rounded-2xl p-6 sm:p-8" style="transition-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-glow/20 to-amber-glow/5 flex items-center justify-center mb-6 border border-amber-glow/10">
+            <i data-lucide="server" class="w-6 h-6 text-amber-glow"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-cream mb-2">Backend & Engineering</h3>
+          <p class="text-sm text-cream-dim/60 mb-6">Building scalable, secure, and maintainable server architectures.</p>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-amber-glow/60 group-hover:bg-amber-glow transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">Node.js / Express</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-amber-glow/60 group-hover:bg-amber-glow transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">Databases (SQL/NoSQL)</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow/20"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-amber-glow/60 group-hover:bg-amber-glow transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">API Architecture</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-amber-glow/60 group-hover:bg-amber-glow transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">Full-Stack Integration</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow"></div><div class="w-5 h-1 rounded bg-amber-glow/20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Core Strengths -->
+        <div class="reveal glass-card rounded-2xl p-6 sm:p-8" style="transition-delay: 0.3s;">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-glow/10 via-amber-glow/10 to-cyan-glow/10 flex items-center justify-center mb-6 border border-cyan-glow/10">
+            <i data-lucide="zap" class="w-6 h-6 text-cream"></i>
+          </div>
+          <h3 class="text-xl font-semibold text-cream mb-2">Core Strengths</h3>
+          <p class="text-sm text-cream-dim/60 mb-6">The soft skills and engineering mindset that elevate execution.</p>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-emerald-400/60 group-hover:bg-emerald-400 transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">Complex Problem-Solving</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-emerald-400/60 group-hover:bg-emerald-400 transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">Performance Optimization</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400/20"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-emerald-400/60 group-hover:bg-emerald-400 transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">System Architecture</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between group">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-emerald-400/60 group-hover:bg-emerald-400 transition-colors"></div>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors">Technical Leadership</span>
+              </div>
+              <div class="flex gap-0.5">
+                <div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400"></div><div class="w-5 h-1 rounded bg-emerald-400/20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- SHARE HUB / DIGITAL BUSINESS CARD           -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="card" class="relative py-24 sm:py-32">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-glow/3 rounded-full blur-[150px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <!-- Section header -->
+      <div class="text-center mb-16 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-glow/5 border border-amber-glow/10 mb-6">
+          <i data-lucide="share-2" class="w-3.5 h-3.5 text-amber-glow"></i>
+          <span class="text-xs text-amber-glow tracking-widest uppercase font-medium">Share Hub</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-4">Digital Business Card</h2>
+        <p class="text-cream-dim/70 max-w-xl mx-auto">Scan the QR code, tap share, or save my contact — instantly connect from any device.</p>
+      </div>
+
+      <!-- Business Card Widget -->
+      <div class="reveal max-w-lg mx-auto">
+        <div class="glass-card rounded-3xl overflow-hidden border border-amber-glow/15 glow-amber relative">
+          <!-- Top accent bar -->
+          <div class="h-1 bg-gradient-to-r from-cyan-glow via-amber-glow to-cyan-glow"></div>
+
+          <div class="p-8 sm:p-10">
+            <!-- Card Header -->
+            <div class="flex items-start justify-between mb-6">
+              <div>
+                <h3 class="text-2xl font-bold text-cream mb-1">Your Name</h3>
+                <p class="text-sm text-cyan-glow">Full-Stack Developer & UI/UX Designer</p>
+                <p class="text-xs text-cream-dim/50 mt-1">San Francisco, CA</p>
+              </div>
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-glow to-amber-glow flex items-center justify-center text-obsidian font-bold text-lg flex-shrink-0">
+                D
+              </div>
+            </div>
+
+            <!-- Scan instruction badge -->
+            <div class="flex items-center justify-center gap-2 mb-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-glow/5 border border-cyan-glow/15">
+                <i data-lucide="scan-line" class="w-3.5 h-3.5 text-cyan-glow animate-pulse"></i>
+                <span class="text-xs text-cyan-glow font-medium">Scan with your phone camera to open instantly</span>
+              </div>
+            </div>
+
+            <!-- QR Code — dynamically generated -->
+            <div class="flex justify-center mb-6">
+              <div class="relative group cursor-pointer">
+                <a href="https://your-portfolio.vercel.app" target="_blank" rel="noopener noreferrer" class="block" id="qrLink">
+                  <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl bg-white p-3 group-hover:shadow-lg group-hover:shadow-cyan-glow/20 transition-all duration-300 group-hover:scale-105 relative overflow-hidden">
+                    <!-- QR code rendered here by JS -->
+                    <canvas id="qrCanvas" class="w-full h-full" style="image-rendering: pixelated;"></canvas>
+                    <!-- Center logo overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-white flex items-center justify-center shadow-md">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-cyan-glow to-amber-glow flex items-center justify-center text-obsidian font-bold text-sm sm:text-base">D</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <p class="text-center text-xs text-cream-dim/50 mt-2 group-hover:text-cyan-glow transition-colors flex items-center justify-center gap-1.5">
+                  <i data-lucide="smartphone" class="w-3 h-3"></i>
+                  Tap or scan to visit live portfolio
+                </p>
+              </div>
+            </div>
+
+            <!-- Live site badge -->
+            <div class="flex justify-center mb-6">
+              <a href="https://your-portfolio.vercel.app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-light/80 border border-white/5 hover:border-cyan-glow/20 transition-all group">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-sm text-cream-dim group-hover:text-cream transition-colors font-mono">your-portfolio.vercel.app</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5 text-cream-dim/40 group-hover:text-cyan-glow transition-colors"></i>
+              </a>
+            </div>
+
+            <!-- Contact quick-info -->
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center gap-3 text-sm text-cream-dim/70">
+                <i data-lucide="mail" class="w-4 h-4 text-cyan-glow/60"></i>
+                <span>hello@yourdomain.com</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-cream-dim/70">
+                <i data-lucide="phone" class="w-4 h-4 text-cyan-glow/60"></i>
+                <span>+1 (555) 123-4567</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm text-cream-dim/70">
+                <i data-lucide="map-pin" class="w-4 h-4 text-cyan-glow/60"></i>
+                <span>San Francisco, CA</span>
+              </div>
+            </div>
+
+            <!-- Action Buttons — 3 column -->
+            <div class="grid grid-cols-3 gap-3">
+              <button onclick="downloadVCard()" class="py-3 bg-gradient-to-r from-cyan-glow to-cyan-deep text-obsidian font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-glow/25 transition-all duration-300 flex items-center justify-center gap-2 text-xs sm:text-sm btn-glow">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                <span class="hidden sm:inline">Save</span> vCard
+              </button>
+              <button onclick="sharePortfolio()" id="shareBtn" class="py-3 bg-gradient-to-r from-amber-glow to-amber-deep text-obsidian font-semibold rounded-xl hover:shadow-lg hover:shadow-amber-glow/25 transition-all duration-300 flex items-center justify-center gap-2 text-xs sm:text-sm btn-glow">
+                <i data-lucide="share-2" class="w-4 h-4"></i>
+                <span id="shareBtnLabel">Share</span>
+              </button>
+              <button onclick="copyContactInfo()" id="copyContactBtn" class="py-3 border border-cream-dim/20 text-cream font-medium rounded-xl hover:border-cyan-glow/40 hover:text-cyan-glow transition-all duration-300 flex items-center justify-center gap-2 text-xs sm:text-sm btn-glow">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+                <span>Copy</span>
+              </button>
+            </div>
+
+            <!-- Share capability hint -->
+            <p class="text-center text-[11px] text-cream-dim/30 mt-4 flex items-center justify-center gap-1">
+              <i data-lucide="info" class="w-3 h-3"></i>
+              Share button uses native sharing on mobile · copies link on desktop
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- CONTACT & FOOTER                            -->
+  <!-- ═══════════════════════════════════════════ -->
+  <section id="contact" class="relative py-24 sm:py-32">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-glow/20 to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-16 reveal">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-glow/5 border border-cyan-glow/10 mb-6">
+          <i data-lucide="send" class="w-3.5 h-3.5 text-cyan-glow"></i>
+          <span class="text-xs text-cyan-glow tracking-widest uppercase font-medium">Contact</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-cream mb-4">Let's Build Something Great</h2>
+        <p class="text-cream-dim/70 max-w-xl mx-auto">Have a project in mind? I'm always open to discussing new opportunities, creative ideas, or just saying hello.</p>
+      </div>
+
+      <!-- Contact Grid -->
+      <div class="reveal grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <!-- Email -->
+        <button onclick="copyToClipboard('hello@yourdomain.com', this)" class="glass-card rounded-2xl p-6 text-center group cursor-pointer">
+          <div class="w-12 h-12 rounded-xl bg-cyan-glow/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-cyan-glow/20 transition-colors border border-cyan-glow/10">
+            <i data-lucide="mail" class="w-5 h-5 text-cyan-glow"></i>
+          </div>
+          <h4 class="text-sm font-medium text-cream mb-1">Email</h4>
+          <p class="text-xs text-cream-dim/60 mb-3">hello@yourdomain.com</p>
+          <span class="inline-flex items-center gap-1 text-xs text-cyan-glow/70 group-hover:text-cyan-glow transition-colors">
+            <i data-lucide="copy" class="w-3 h-3"></i>
+            <span class="copy-label">Click to copy</span>
+          </span>
+        </button>
+
+        <!-- GitHub -->
+        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="glass-card rounded-2xl p-6 text-center group cursor-pointer">
+          <div class="w-12 h-12 rounded-xl bg-surface-light flex items-center justify-center mx-auto mb-4 group-hover:bg-white/10 transition-colors border border-white/5">
+            <i data-lucide="github" class="w-5 h-5 text-cream"></i>
+          </div>
+          <h4 class="text-sm font-medium text-cream mb-1">GitHub</h4>
+          <p class="text-xs text-cream-dim/60 mb-3">@yourusername</p>
+          <span class="inline-flex items-center gap-1 text-xs text-cream-dim/50 group-hover:text-cream transition-colors">
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+            View Profile
+          </span>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="glass-card rounded-2xl p-6 text-center group cursor-pointer">
+          <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500/20 transition-colors border border-blue-500/10">
+            <i data-lucide="linkedin" class="w-5 h-5 text-blue-400"></i>
+          </div>
+          <h4 class="text-sm font-medium text-cream mb-1">LinkedIn</h4>
+          <p class="text-xs text-cream-dim/60 mb-3">in/yourusername</p>
+          <span class="inline-flex items-center gap-1 text-xs text-cream-dim/50 group-hover:text-blue-400 transition-colors">
+            <i data-lucide="external-link" class="w-3 h-3"></i>
+            Connect
+          </span>
+        </a>
+
+        <!-- Phone -->
+        <button onclick="copyToClipboard('+1 (555) 123-4567', this)" class="glass-card rounded-2xl p-6 text-center group cursor-pointer">
+          <div class="w-12 h-12 rounded-xl bg-amber-glow/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-amber-glow/20 transition-colors border border-amber-glow/10">
+            <i data-lucide="phone" class="w-5 h-5 text-amber-glow"></i>
+          </div>
+          <h4 class="text-sm font-medium text-cream mb-1">Phone</h4>
+          <p class="text-xs text-cream-dim/60 mb-3">+1 (555) 123-4567</p>
+          <span class="inline-flex items-center gap-1 text-xs text-amber-glow/70 group-hover:text-amber-glow transition-colors">
+            <i data-lucide="copy" class="w-3 h-3"></i>
+            <span class="copy-label">Click to copy</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Location line -->
+      <div class="reveal flex items-center justify-center gap-2 mt-10 text-sm text-cream-dim/50">
+        <i data-lucide="map-pin" class="w-4 h-4"></i>
+        <span>San Francisco, CA · Open to remote work worldwide</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FOOTER                                      -->
+  <!-- ═══════════════════════════════════════════ -->
+  <footer class="relative py-8 border-t border-white/5">
+    <!-- Glow line -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-px bg-gradient-to-r from-transparent via-cyan-glow/30 to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-cream-dim/40">
+          &copy; <span id="currentYear"></span> <span class="text-cream-dim/60">Your Name</span>. Crafted with precision.
+        </p>
+        <div class="flex items-center gap-1">
+          <span class="text-xs text-cream-dim/30">Built with</span>
+          <span class="text-cyan-glow text-xs text-glow-cyan animate-pulse mx-1">&hearts;</span>
+          <span class="text-xs text-cream-dim/30">and clean code</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-cream-dim/40 hover:text-cyan-glow transition-colors">
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" class="text-cream-dim/40 hover:text-cyan-glow transition-colors">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="mailto:hello@yourdomain.com" class="text-cream-dim/40 hover:text-cyan-glow transition-colors">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TOAST NOTIFICATION                          -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 bg-surface border border-cyan-glow/30 rounded-xl text-sm text-cream flex items-center gap-2 shadow-2xl glow-cyan transition-all duration-300 opacity-0 translate-y-4 pointer-events-none">
+    <i data-lucide="check-circle" class="w-4 h-4 text-cyan-glow"></i>
+    <span id="toastMessage">Copied!</span>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- JAVASCRIPT                                  -->
+  <!-- ═══════════════════════════════════════════ -->
+  <script>
+    // ──────────────────────────────────────────
+    // Initialize Lucide Icons
+    // ──────────────────────────────────────────
+    lucide.createIcons();
+
+    // ──────────────────────────────────────────
+    // Current Year
+    // ──────────────────────────────────────────
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // ──────────────────────────────────────────
+    // Mobile Navigation
+    // ──────────────────────────────────────────
+    const menuToggle = document.getElementById('menuToggle');
+    const menuClose = document.getElementById('menuClose');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    menuToggle.addEventListener('click', () => mobileNav.classList.add('open'));
+    menuClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    // ──────────────────────────────────────────
+    // Navbar scroll effect
+    // ──────────────────────────────────────────
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > 80) {
+        navbar.classList.add('bg-obsidian/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+      } else {
+        navbar.classList.remove('bg-obsidian/80', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+      }
+
+      lastScroll = currentScroll;
+    });
+
+    // ──────────────────────────────────────────
+    // Scroll Reveal Animation
+    // ──────────────────────────────────────────
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ──────────────────────────────────────────
+    // Toast Notification
+    // ──────────────────────────────────────────
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      toastMessage.textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2500);
+    }
+
+    // ──────────────────────────────────────────
+    // Copy to Clipboard
+    // ──────────────────────────────────────────
+    function copyToClipboard(text, element) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(`Copied: ${text}`);
+        // Update button label temporarily
+        if (element) {
+          const label = element.querySelector('.copy-label');
+          if (label) {
+            const original = label.textContent;
+            label.textContent = 'Copied!';
+            setTimeout(() => { label.textContent = original; }, 2000);
+          }
+        }
+      }).catch(() => {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast(`Copied: ${text}`);
+      });
+    }
+
+    // ──────────────────────────────────────────
+    // Copy Contact Info (Business Card)
+    // ──────────────────────────────────────────
+    function copyContactInfo() {
+      const info = `Your Name
+Full-Stack Developer & UI/UX Designer
+Email: hello@yourdomain.com
+Phone: +1 (555) 123-4567
+Web: https://your-portfolio.vercel.app
+GitHub: https://github.com/yourusername
+LinkedIn: https://linkedin.com/in/yourusername`;
+
+      navigator.clipboard.writeText(info).then(() => {
+        showToast('Contact info copied to clipboard!');
+        const btn = document.getElementById('copyContactBtn');
+        const span = btn.querySelector('span');
+        span.textContent = 'Copied!';
+        setTimeout(() => { span.textContent = 'Copy Info'; }, 2000);
+      }).catch(() => {
+        const textarea = document.createElement('textarea');
+        textarea.value = info;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('Contact info copied!');
+      });
+    }
+
+    // ──────────────────────────────────────────
+    // Download vCard
+    // ──────────────────────────────────────────
+    function downloadVCard() {
+      const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Your Name
+TITLE:Full-Stack Developer & UI/UX Designer
+TEL;TYPE=CELL:+15551234567
+EMAIL;TYPE=INTERNET:hello@yourdomain.com
+URL:https://your-portfolio.vercel.app
+ADR;TYPE=WORK:;;San Francisco;CA;;US
+NOTE:Full-Stack Developer & UI/UX Designer - Building elegant solutions to complex problems.
+END:VCARD`;
+
+      const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'your-name-contact.vcf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      showToast('vCard downloaded!');
+    }
+
+    // ──────────────────────────────────────────
+    // Smooth anchor offset (for fixed navbar)
+    // ──────────────────────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ──────────────────────────────────────────
+    // Active nav link highlighting
+    // ──────────────────────────────────────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            link.classList.remove('text-cyan-glow', 'bg-white/5');
+            link.classList.add('text-cream-dim');
+            if (link.getAttribute('href') === `#${entry.target.id}`) {
+              link.classList.add('text-cyan-glow', 'bg-white/5');
+              link.classList.remove('text-cream-dim');
+            }
+          });
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '-80px 0px -50% 0px'
+    });
+
+    sections.forEach(section => navObserver.observe(section));
+
+    // ──────────────────────────────────────────
+    // Parallax subtle movement on mouse
+    // ──────────────────────────────────────────
+    document.addEventListener('mousemove', (e) => {
+      const hero = document.getElementById('hero');
+      if (!hero) return;
+      const rect = hero.getBoundingClientRect();
+      if (e.clientY > rect.bottom) return;
+
+      const x = (e.clientX / window.innerWidth - 0.5) * 10;
+      const y = (e.clientY / window.innerHeight - 0.5) * 10;
+
+      const orbs = hero.querySelectorAll('.animate-glow-pulse');
+      orbs.forEach((orb, i) => {
+        const factor = i === 0 ? 1 : -1;
+        orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
+      });
+    });
+  </script>
+</body>
+</html>
